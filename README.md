@@ -1,59 +1,145 @@
+<div align="center">
+
 # Booklingo
 
-Booklingo is a local PDF reader for language study. It lets you upload English PDFs, select words or short phrases, translate them quickly, practice pronunciation, and save useful terms as flashcards.
+### Read English PDFs, translate in context, practice pronunciation, and build flashcards.
 
-This project was built through a Vibe Code workflow, starting from Google AI Studio and then refined with Codex.
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=111)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
+[![License](https://img.shields.io/badge/license-MIT-green)](#license)
+
+</div>
+
+## Overview
+
+Booklingo is a local PDF reader for language study. Upload an English PDF, select words or short phrases, get quick translations, practice pronunciation, and save useful vocabulary as flashcards.
+
+This project was built through a **Vibe Code** workflow, starting from **Google AI Studio** and then refined with **Codex**.
+
+## Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [How It Works](#how-it-works)
+- [Getting Started](#getting-started)
+- [Available Scripts](#available-scripts)
+- [Project Structure](#project-structure)
+- [Notes](#notes)
 
 ## Features
 
-- Local PDF upload and reading
-- Recent book library stored in the browser with IndexedDB
-- Text selection popover for quick translation
-- Translation targets: Portuguese, Spanish, and Chinese
-- Portuguese is the default translation language
-- English text-to-speech for selected words and full pages
-- Pronunciation practice using browser speech recognition
-- YouGlish shortcut for real-world pronunciation examples
-- ChatGPT shortcut for deeper explanations of selected phrases
-- Flashcards saved locally in the browser
-- Quizlet-friendly flashcard export
-- Reader themes: light, sepia, and dark
-- Zoom controls for comfortable reading
+- **PDF reader**: upload and read local PDF files in the browser.
+- **Recent library**: keep recent books available with browser storage.
+- **Quick translation**: select words or short phrases and translate instantly.
+- **Multiple target languages**: Portuguese, Spanish, and Chinese.
+- **Default Portuguese**: Portuguese is always the default translation language.
+- **Pronunciation practice**: speak selected words and compare against browser speech recognition.
+- **Text-to-speech**: hear selected words or full pages in English.
+- **YouGlish shortcut**: open real-world pronunciation examples.
+- **ChatGPT shortcut**: ask for a deeper explanation of selected phrases.
+- **Flashcards**: save useful terms locally while reading.
+- **Quizlet export**: copy flashcards in a Quizlet-friendly format.
+- **Reader themes**: light, sepia, and dark modes.
+- **Zoom controls**: adjust reading size comfortably.
 
 ## Tech Stack
 
-- React for the frontend interface
-- TypeScript for typed application code
-- Vite for local development and production builds
-- Tailwind CSS via CDN for styling
-- PDF.js via CDN for rendering PDFs in the browser
-- IndexedDB for local storage of recent books and flashcards
-- Web Speech API for text-to-speech and pronunciation practice
+| Technology | Purpose |
+| --- | --- |
+| React | Frontend interface |
+| TypeScript | Typed application code |
+| Vite | Local dev server and production builds |
+| Tailwind CSS via CDN | Styling and utility classes |
+| PDF.js via CDN | PDF rendering in the browser |
+| IndexedDB | Local storage for books and flashcards |
+| Web Speech API | Text-to-speech and pronunciation practice |
+| Google Translate endpoint | Quick translation requests |
 
-## Frontend
+## How It Works
 
-Booklingo is a pure frontend React app. It runs in the browser with Vite and does not require a backend server for the main reading, flashcard, storage, and pronunciation workflows.
+Booklingo is a pure frontend React app. The main workflows run directly in the browser:
 
-The browser handles:
+- PDF.js renders PDF pages.
+- IndexedDB stores recent books and flashcards locally.
+- The Web Speech API handles speech synthesis and speech recognition.
+- Translation requests are sent to the public Google Translate endpoint.
+- ChatGPT and YouGlish open as external helper tools.
 
-- PDF rendering through PDF.js
-- Local persistence through IndexedDB
-- Speech synthesis and speech recognition through the Web Speech API
-- Translation requests through the public Google Translate endpoint
+No backend server is required for the core reading experience.
 
-## Run Locally
+## Getting Started
 
-**Prerequisites:** Node.js
+### Prerequisites
 
-1. Install dependencies:
-   `npm install`
-2. Run the app:
-   `npm run dev`
-3. Open:
-   `http://localhost:3000`
+- Node.js
+- npm
 
-## Build
+### Installation
 
-Run:
+```bash
+npm install
+```
 
-`npm run build`
+### Run Locally
+
+```bash
+npm run dev
+```
+
+Open:
+
+```text
+http://localhost:3000
+```
+
+## Available Scripts
+
+```bash
+npm run dev
+```
+
+Starts the Vite development server.
+
+```bash
+npm run build
+```
+
+Builds the app for production.
+
+```bash
+npm run preview
+```
+
+Previews the production build locally.
+
+## Project Structure
+
+```text
+.
+|-- components/
+|   |-- DefinitionPopover.tsx
+|   |-- FlashcardList.tsx
+|   `-- Reader.tsx
+|-- services/
+|   |-- pdfService.ts
+|   |-- storageService.ts
+|   `-- translationService.ts
+|-- App.tsx
+|-- index.html
+|-- index.tsx
+|-- types.ts
+|-- vite.config.ts
+`-- package.json
+```
+
+## Notes
+
+- Books and flashcards are stored locally in the user's browser.
+- Clearing browser storage may remove saved books and flashcards.
+- Speech recognition support depends on the browser.
+- Translation quality depends on the external translation endpoint.
+
+## License
+
+MIT
