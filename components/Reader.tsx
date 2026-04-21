@@ -150,7 +150,7 @@ const PDFPageRenderer = memo(({
             {/* The class 'textLayer' is essential for pdf_viewer.css */}
             <div ref={textLayerRef} className="textLayer" />
             
-            <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-gray-400 text-xs font-medium select-none">
+            <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-brand-muted text-xs font-medium select-none">
                 {pageNumber}
             </div>
         </div>
@@ -172,12 +172,12 @@ export const Reader: React.FC<ReaderProps> = ({
     const getThemeClasses = () => {
         switch (theme) {
             case ReaderTheme.SEPIA:
-                return 'bg-[#f0eadd] pdf-sepia-mode';
+                return 'bg-brand-surface pdf-sepia-mode';
             case ReaderTheme.DARK:
-                return 'bg-[#121212] pdf-dark-mode';
+                return 'bg-brand-dark pdf-dark-mode';
             case ReaderTheme.LIGHT:
             default:
-                return 'bg-gray-200';
+                return 'bg-brand-surface';
         }
     };
 

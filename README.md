@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="./assets/logo.png" alt="Booklingo logo" width="180" />
+
 # Booklingo
 
 ### Read English PDFs, translate in context, practice pronunciation, and build flashcards.
