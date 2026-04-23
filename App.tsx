@@ -8,6 +8,8 @@ import { FlashcardList } from './components/FlashcardList';
 import { getWordTranslation } from './services/translationService';
 import { getRecentBooks, loadBookFromStorage, saveBookToStorage, deleteBookFromStorage, StoredBookMetadata, saveFlashcard } from './services/storageService';
 
+const logoUrl = new URL('./assets/logo.png', import.meta.url).href;
+
 const App: React.FC = () => {
     // View State
     const [currentView, setCurrentView] = useState<'home' | 'reader' | 'flashcards'>('home');
@@ -435,7 +437,7 @@ const App: React.FC = () => {
                 <div className="max-w-4xl w-full flex flex-col items-center space-y-12 z-10">
                     <div className="text-center space-y-4">
                         <div className={`inline-flex justify-center p-4 rounded-2xl shadow-xl mb-2 border ${homeClasses.logoCard}`}>
-                            <img src="/assets/logo.png" alt="Booklingo logo" className="h-24 w-24 rounded-xl object-cover" />
+                            <img src={logoUrl} alt="Booklingo logo" className="h-24 w-24 rounded-xl object-cover" />
                         </div>
                         <h1 className={`text-4xl font-serif ${homeClasses.title}`}>Booklingo</h1>
                         <p className={`${homeClasses.subtitle} text-lg max-w-md mx-auto`}>
@@ -503,7 +505,7 @@ const App: React.FC = () => {
                                     </div>
                                 ) : recentBooks.length === 0 ? (
                                     <div className={`flex flex-col items-center justify-center h-full gap-2 py-8 ${homeClasses.cardMuted}`}>
-                                        <img src="/assets/logo.png" alt="" className="h-14 w-14 rounded-xl object-cover opacity-25" />
+                                        <img src={logoUrl} alt="" className="h-14 w-14 rounded-xl object-cover opacity-25" />
                                         <p className="text-sm">No recent books.</p>
                                     </div>
                                 ) : (
@@ -575,7 +577,7 @@ const App: React.FC = () => {
                             onClick={() => setCurrentView('home')}
                             className="cursor-pointer hover:bg-brand-blue/25 p-1.5 rounded-lg transition-colors text-brand-tealLight mr-2"
                         >
-                            <img src="/assets/logo.png" alt="Booklingo home" className="h-8 w-8 rounded-md object-cover" />
+                            <img src={logoUrl} alt="Booklingo home" className="h-8 w-8 rounded-md object-cover" />
                         </div>
                         <h2 className="font-semibold text-white truncate max-w-[200px]" title={pdfDocument.fileName}>{pdfDocument.fileName}</h2>
                         <span className="text-xs bg-brand-blue/20 px-2 py-1 rounded text-brand-tealLight">Page {currentPage} of {pdfDocument.numPages}</span>
